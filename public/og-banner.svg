@@ -1,0 +1,49 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="og-blob1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 100) scale(500)">
+      <stop stop-color="#4F46E5" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="og-blob2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1050 550) scale(480)">
+      <stop stop-color="#06B6D4" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="og-blob3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 100) scale(420)">
+      <stop stop-color="#7C3AED" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="og-text-grad" x1="0" y1="0" x2="900" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="og-mark-grad" x1="0" y1="0" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="55%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#050816"/>
+  <rect width="1200" height="630" fill="url(#og-blob1)"/>
+  <rect width="1200" height="630" fill="url(#og-blob2)"/>
+  <rect width="1200" height="630" fill="url(#og-blob3)"/>
+
+  <g opacity="0.05">
+    <path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200" stroke="#FFFFFF"/>
+    <path d="M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630" stroke="#FFFFFF"/>
+  </g>
+
+  <rect x="90" y="90" width="90" height="90" rx="22" fill="#0A0F2B" stroke="url(#og-mark-grad)" stroke-opacity="0.5"/>
+  <path d="M112 112L145 145V178" stroke="url(#og-mark-grad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M168 112L145 145" stroke="url(#og-mark-grad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M152 112H168V128" stroke="#06B6D4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="88" y="300" font-family="Space Grotesk, sans-serif" font-size="72" font-weight="700" fill="url(#og-text-grad)">Building the Next Era</text>
+  <text x="88" y="380" font-family="Space Grotesk, sans-serif" font-size="72" font-weight="700" fill="url(#og-text-grad)">Through Technology</text>
+
+  <text x="90" y="440" font-family="Inter, sans-serif" font-size="26" fill="#A1A1AA">AI &#8226; Web &#8226; Mobile &#8226; Cloud &#8226; Automation &#8226; Enterprise Software</text>
+
+  <text x="90" y="560" font-family="Space Grotesk, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Yug<tspan fill="#06B6D4">Nirman</tspan></text>
+  <text x="90" y="592" font-family="Inter, sans-serif" font-size="20" fill="#A1A1AA">Kathmandu, Nepal &#8594; Serving clients globally</text>
+</svg>

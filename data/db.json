@@ -1,0 +1,186 @@
+{
+  "settings": {
+    "companyName": "YugNirman",
+    "tagline": "Building the Next Era Through Technology",
+    "mission": "Empower businesses with intelligent digital solutions.",
+    "vision": "Build Nepal's most innovative technology company while serving clients globally.",
+    "email": "hello@yugnirman.com",
+    "phone": "+977 9807778833",
+    "whatsapp": "+977980777883",
+    "address": "Sanepa, Lalitpur, Kathmandu Valley, Nepal",
+    "mapEmbedUrl": "https://www.google.com/maps?q=Kathmandu,Nepal&output=embed",
+    "socials": {
+      "facebook": "https://facebook.com/yugnirman",
+      "instagram": "https://instagram.com/yugnirman",
+      "linkedin": "https://linkedin.com/company/yugnirman",
+      "x": "https://x.com/yugnirman",
+      "youtube": "https://youtube.com/@yugnirman",
+      "github": "https://github.com/yugnirman",
+      "tiktok": "https://tiktok.com/@yugnirman",
+      "whatsapp": ""
+    }
+  },
+  "services": [
+    {
+      "id": "svc_ai",
+      "title": "AI Solutions",
+      "slug": "ai-solutions",
+      "icon": "brain-circuit",
+      "shortDesc": "Custom LLM integrations, intelligent agents, and ML pipelines built for real business outcomes.",
+      "description": "We design and ship production AI systems — from customer-facing chatbots and internal copilots to document intelligence and predictive models — integrated directly into your existing workflows.",
+      "features": [
+        "LLM & RAG integration",
+        "Custom AI agents",
+        "Predictive analytics",
+        "Computer vision",
+        "MLOps & monitoring"
+      ],
+      "startingPrice": "Custom quote"
+    },
+    {
+      "id": "svc_web",
+      "title": "Web Development",
+      "slug": "web-development",
+      "icon": "globe",
+      "shortDesc": "High-performance web platforms engineered for speed, SEO, and conversion.",
+      "description": "From marketing sites to complex web applications, we build with modern frameworks for performance, accessibility, and long-term maintainability.",
+      "features": [
+        "Next.js / React apps",
+        "E-commerce platforms",
+        "CMS-driven websites",
+        "Performance optimization",
+        "SEO architecture"
+      ],
+      "startingPrice": "From NPR 30,000"
+    },
+    {
+      "id": "svc_mobile",
+      "title": "Mobile App Development",
+      "slug": "mobile-app-development",
+      "icon": "smartphone",
+      "shortDesc": "Cross-platform apps that feel native, shipped fast without compromising quality.",
+      "description": "We build iOS and Android apps from a single codebase using Flutter and React Native, backed by robust APIs and CI/CD pipelines.",
+      "features": [
+        "iOS & Android",
+        "Flutter / React Native",
+        "Push notifications",
+        "Offline-first architecture",
+        "App Store deployment"
+      ],
+      "startingPrice": "From NPR 250,000"
+    },
+    {
+      "id": "svc_cloud",
+      "title": "Cloud Solutions",
+      "slug": "cloud-solutions",
+      "icon": "cloud",
+      "shortDesc": "Scalable, secure cloud architecture built to handle real traffic.",
+      "description": "We architect and manage cloud infrastructure on AWS, GCP, and Cloudflare — built for resilience, security, and cost efficiency at scale.",
+      "features": [
+        "Cloud architecture design",
+        "Migration & modernization",
+        "Auto-scaling infrastructure",
+        "Cost optimization",
+        "24/7 monitoring"
+      ],
+      "startingPrice": "Custom quote"
+    },
+    {
+      "id": "svc_automation",
+      "title": "Business Automation",
+      "slug": "business-automation",
+      "icon": "workflow",
+      "shortDesc": "Workflow automation that eliminates manual work and connects your stack.",
+      "description": "We identify repetitive operational bottlenecks and automate them — connecting your tools, data, and teams into one seamless system.",
+      "features": [
+        "Workflow automation",
+        "System integrations",
+        "Custom internal tools",
+        "Data pipelines",
+        "Reporting dashboards"
+      ],
+      "startingPrice": "From NPR 100,000"
+    },
+    {
+      "id": "svc_enterprise",
+      "title": "Enterprise Software",
+      "slug": "enterprise-software",
+      "icon": "building-2",
+      "shortDesc": "Mission-critical internal systems built with security and compliance first.",
+      "description": "We build ERPs, CRMs, and custom internal platforms for organizations that need reliability, access control, and long-term support.",
+      "features": [
+        "Custom ERP / CRM",
+        "Role-based access control",
+        "Audit logging",
+        "Legacy system integration",
+        "Compliance-ready architecture"
+      ],
+      "startingPrice": "Custom quote"
+    },
+    {
+      "id": "svc_uiux",
+      "title": "UI/UX Design",
+      "slug": "ui-ux-design",
+      "icon": "palette",
+      "shortDesc": "Interfaces designed with intention — every pixel earns its place.",
+      "description": "From product strategy to high-fidelity prototypes, our design process is rooted in research, usability, and brand identity.",
+      "features": [
+        "Product design",
+        "Design systems",
+        "User research",
+        "Prototyping",
+        "Brand identity"
+      ],
+      "startingPrice": "From NPR 60,000"
+    },
+    {
+      "id": "svc_devops",
+      "title": "DevOps",
+      "slug": "devops",
+      "icon": "settings-2",
+      "shortDesc": "CI/CD pipelines, infrastructure as code, and zero-downtime deployments.",
+      "description": "We set up the infrastructure discipline behind reliable software — automated pipelines, observability, and infrastructure as code.",
+      "features": [
+        "CI/CD pipelines",
+        "Infrastructure as code",
+        "Container orchestration",
+        "Observability & alerting",
+        "Zero-downtime deployments"
+      ],
+      "startingPrice": "From NPR 80,000"
+    },
+    {
+      "id": "svc_saas",
+      "title": "SaaS Development",
+      "slug": "saas-development",
+      "icon": "layers",
+      "shortDesc": "Full-cycle SaaS builds — from MVP to multi-tenant platform.",
+      "description": "We take SaaS products from idea to scale: multi-tenancy, billing, authentication, and the operational tooling needed to grow.",
+      "features": [
+        "Multi-tenant architecture",
+        "Subscription billing",
+        "Authentication & RBAC",
+        "Admin dashboards",
+        "API-first design"
+      ],
+      "startingPrice": "Custom quote"
+    }
+  ],
+  "portfolio": [],
+  "testimonials": [
+    {
+      "id": "tes_h_Fkk1IMyX",
+      "createdAt": "2026-07-08T05:49:40.136Z",
+      "name": "Krishna Yadav",
+      "role": "Founder/CEO",
+      "quote": "Hey i'm Krishna Yadav the founder of YugNirman Technologies . We deliver you a best service here.",
+      "rating": 5
+    }
+  ],
+  "bookings": [],
+  "messages": [],
+  "admin": {
+    "username": "admin",
+    "passwordHash": "$2a$10$7yaHecy.rSodzpCD86x9M.0w0ZwqjEeewzWySrg8hlCORvRYCFH32"
+  }
+}
