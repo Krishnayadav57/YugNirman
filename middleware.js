@@ -1,32 +1,35 @@
 import { NextResponse } from "next/server";
-import { jwtVerify } from "jose";
-
-const secretKey = process.env.SESSION_SECRET || "dev-only-insecure-secret-change-me-in-production";
-const key = new TextEncoder().encode(secretKey);
+import { createClient } from "@/utils/supabase/middleware";
 
 export async function middleware(request) {
   const { pathname } = request.nextUrl;
+  const { supabase, response } = createClient(request);
 
-  if (pathname.startsWith("/admin/login")) {
-    return NextResponse.next();
-  }
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  if (pathname.startsWith("/admin")) {
-    const token = request.cookies.get("yugnirman_admin_session")?.value;
-    if (!token) {
+  // Admin area (except the login page itself)
+  if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
+    if (!user) {
       return NextResponse.redirect(new URL("/admin/login", request.url));
     }
-    try {
-      await jwtVerify(token, key);
-      return NextResponse.next();
-    } catch {
-      return NextResponse.redirect(new URL("/admin/login", request.url));
+    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single();
+    if (profile?.role !== "admin") {
+      return NextResponse.redirect(new URL("/", request.url));
     }
   }
 
-  return NextResponse.next();
+  // Customer account area
+  if (pathname.startsWith("/account") && !user) {
+    const redirectUrl = new URL("/login", request.url);
+    redirectUrl.searchParams.set("redirectedFrom", pathname);
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  return response;
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/account/:path*"],
 };

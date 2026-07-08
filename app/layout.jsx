@@ -1,6 +1,7 @@
 import "./globals.css";
 import CursorFX from "@/components/CursorFX";
 import ScrollReveal from "@/components/ScrollReveal";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata = {
   metadataBase: new URL("https://yugnirman.com"),
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
         <div className="relative z-[1]">{children}</div>
         <CursorFX />
         <ScrollReveal />
+        <CookieConsent />
       </body>
     </html>
   );

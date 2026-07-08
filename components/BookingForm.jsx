@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function BookingForm({ services }) {
+export default function BookingForm({ services, initialValues }) {
   const searchParams = useSearchParams();
   const preselect = searchParams.get("service");
   const preselectedService = services.find((s) => s.slug === preselect);
 
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    name: initialValues?.name || "",
+    email: initialValues?.email || "",
     phone: "",
     company: "",
     serviceId: preselectedService?.id || services[0]?.id || "",

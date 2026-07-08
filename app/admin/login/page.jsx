@@ -31,9 +31,10 @@ export default function AdminLoginPage() {
           <p className="text-muted text-sm mb-6">Manage services, bookings, and site content.</p>
           <form action={formAction} className="space-y-4">
             <div>
-              <label className="block text-xs text-muted mb-2">Username</label>
+              <label className="block text-xs text-muted mb-2">Email</label>
               <input
-                name="username"
+                name="email"
+                type="email"
                 required
                 className="w-full rounded-xl border border-border bg-white/[0.03] px-4 py-3 text-sm focus:outline-none focus:border-accent"
               />
@@ -52,7 +53,7 @@ export default function AdminLoginPage() {
           </form>
         </div>
         <p className="text-center text-muted text-xs mt-6">
-          Default credentials are in the project README — change the password after first login.
+          Admin accounts are managed in Supabase — see README for setup instructions.
         </p>
       </div>
     </div>

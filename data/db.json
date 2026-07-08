@@ -5,10 +5,16 @@
     "mission": "Empower businesses with intelligent digital solutions.",
     "vision": "Build Nepal's most innovative technology company while serving clients globally.",
     "email": "hello@yugnirman.com",
-    "phone": "+977 9807778833",
-    "whatsapp": "+977980777883",
+    "phone": "+977-1-4123456",
+    "whatsapp": "+9779800000000",
     "address": "Sanepa, Lalitpur, Kathmandu Valley, Nepal",
     "mapEmbedUrl": "https://www.google.com/maps?q=Kathmandu,Nepal&output=embed",
+    "legal": {
+      "registrationNo": "",
+      "panNo": "",
+      "vatNo": "",
+      "registeredAddress": ""
+    },
     "socials": {
       "facebook": "https://facebook.com/yugnirman",
       "instagram": "https://instagram.com/yugnirman",
@@ -16,8 +22,7 @@
       "x": "https://x.com/yugnirman",
       "youtube": "https://youtube.com/@yugnirman",
       "github": "https://github.com/yugnirman",
-      "tiktok": "https://tiktok.com/@yugnirman",
-      "whatsapp": ""
+      "tiktok": "https://tiktok.com/@yugnirman"
     }
   },
   "services": [
@@ -51,7 +56,7 @@
         "Performance optimization",
         "SEO architecture"
       ],
-      "startingPrice": "From NPR 30,000"
+      "startingPrice": "From NPR 150,000"
     },
     {
       "id": "svc_mobile",
@@ -167,20 +172,7 @@
     }
   ],
   "portfolio": [],
-  "testimonials": [
-    {
-      "id": "tes_h_Fkk1IMyX",
-      "createdAt": "2026-07-08T05:49:40.136Z",
-      "name": "Krishna Yadav",
-      "role": "Founder/CEO",
-      "quote": "Hey i'm Krishna Yadav the founder of YugNirman Technologies . We deliver you a best service here.",
-      "rating": 5
-    }
-  ],
+  "testimonials": [],
   "bookings": [],
-  "messages": [],
-  "admin": {
-    "username": "admin",
-    "passwordHash": "$2a$10$7yaHecy.rSodzpCD86x9M.0w0ZwqjEeewzWySrg8hlCORvRYCFH32"
-  }
+  "messages": []
 }

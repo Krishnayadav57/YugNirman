@@ -3,11 +3,16 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingForm from "@/components/BookingForm";
 import { getServices } from "@/lib/db";
+import { createClient } from "@/utils/supabase/server";
 
 export const metadata = { title: "Book a Service", description: "Book a service with YugNirman." };
 
-export default function BookPage() {
+export default async function BookPage() {
   const services = getServices();
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <>
@@ -23,7 +28,12 @@ export default function BookPage() {
           </div>
           <div className="reveal">
             <Suspense fallback={<div className="text-muted text-sm">Loading form...</div>}>
-              <BookingForm services={services} />
+              <BookingForm
+                services={services}
+                initialValues={
+                  user ? { name: user.user_metadata?.full_name || "", email: user.email || "" } : undefined
+                }
+              />
             </Suspense>
           </div>
         </div>

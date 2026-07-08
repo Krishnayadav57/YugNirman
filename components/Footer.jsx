@@ -5,6 +5,8 @@ import SocialLinks from "@/components/SocialLinks";
 
 export default function Footer() {
   const settings = getSettings();
+  const legal = settings.legal || {};
+  const hasLegalInfo = legal.registrationNo || legal.panNo || legal.vatNo;
 
   return (
     <footer className="border-t border-border mt-20">
@@ -20,6 +22,7 @@ export default function Footer() {
             <Link href="/about" className="block text-muted hover:text-white text-sm py-1.5 transition-colors">About</Link>
             <Link href="/portfolio" className="block text-muted hover:text-white text-sm py-1.5 transition-colors">Portfolio</Link>
             <Link href="/contact" className="block text-muted hover:text-white text-sm py-1.5 transition-colors">Contact</Link>
+            <Link href="/login" className="block text-muted hover:text-white text-sm py-1.5 transition-colors">Log In</Link>
           </div>
           <div>
             <h5 className="text-xs uppercase tracking-wider text-muted mb-4">Get in touch</h5>
@@ -28,8 +31,25 @@ export default function Footer() {
             <span className="block text-muted text-sm py-1.5">{settings.address}</span>
           </div>
         </div>
+
+        <div className="pt-8 border-t border-border grid sm:grid-cols-2 gap-6 mb-8">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted">
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <Link href="/refund-policy" className="hover:text-white transition-colors">Refund Policy</Link>
+          </div>
+          {hasLegalInfo && (
+            <div className="flex flex-wrap sm:justify-end gap-x-5 gap-y-1 text-xs text-muted">
+              {legal.registrationNo && <span>Reg. No: {legal.registrationNo}</span>}
+              {legal.panNo && <span>PAN: {legal.panNo}</span>}
+              {legal.vatNo && <span>VAT: {legal.vatNo}</span>}
+            </div>
+          )}
+        </div>
+
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-3 text-muted text-xs">
-          <span>© {new Date().getFullYear()} YugNirman. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} {settings.companyName}. All rights reserved.</span>
           <span>Made in Kathmandu, for the world.</span>
         </div>
       </div>
