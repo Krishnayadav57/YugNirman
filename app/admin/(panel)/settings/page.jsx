@@ -1,7 +1,7 @@
 import { getSettings } from "@/lib/db";
 import AdminSettingsClient from "./AdminSettingsClient";
 
-export default function AdminSettingsPage() {
-  const settings = getSettings();
+export default async function AdminSettingsPage() {
+  const settings = await getSettings();
   return <AdminSettingsClient settings={settings} />;
 }

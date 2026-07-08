@@ -1,4 +1,4 @@
-   # YugNirman — Production Website + Admin Panel
+# YugNirman — Production Website + Admin Panel
 
 A full Next.js 14 (App Router) web application for **YugNirman**, a Nepal-based technology company — public marketing site, service booking system, customer accounts, contact form, legal pages, and a complete admin panel.
 
@@ -7,19 +7,23 @@ A full Next.js 14 (App Router) web application for **YugNirman**, a Nepal-based 
 - **Next.js 14** (App Router, Server Actions, Middleware)
 - **Tailwind CSS** for styling
 - **Supabase Auth** for both admin login and customer accounts (email/password, session cookies refreshed by middleware)
-- **JSON file data layer** (`data/db.json`) for site content (services, portfolio, bookings, messages, settings) — zero external database required to run. Swappable for Postgres/Prisma later.
+- **Supabase Postgres** for all site content (services, portfolio, bookings, messages, testimonials, settings) — same free-tier project as auth, accessed server-only via a service-role client
 - **Resend** for email notifications on new bookings/messages (optional — degrades gracefully if not configured)
 - In-memory rate limiting on public form endpoints
 - Custom cursor glow/ring, scroll reveals, magnetic buttons, aurora background
 - Cookie consent banner, Privacy Policy, Terms of Service, Cookie Policy, Refund & Cancellation Policy
 - Dynamic OG image generation (`next/og`), `sitemap.xml`, `robots.txt`, custom 404
 
-## 1. Set up Supabase (required)
+## 1. Set up Supabase (required — free tier is enough, no paid plan needed)
 
-1. Create a project at [supabase.com](https://supabase.com).
-2. Go to **Settings → API** and copy your Project URL and `anon`/publishable key.
-3. Go to **SQL Editor → New query**, paste the contents of `supabase/schema.sql`, and run it. This creates a `profiles` table (with a `role` column) and auto-creates a profile whenever someone signs up.
+1. Create a project at [supabase.com](https://supabase.com) (free tier).
+2. Go to **Settings → API** and copy: the Project URL, the `anon`/publishable key, and the `service_role` key (keep this one secret).
+3. Go to **SQL Editor → New query**, paste the entire contents of `supabase/schema.sql`, and run it. This creates:
+   - A `profiles` table (with a `role` column) for admin/user distinction, plus an auto-create trigger on signup
+   - All site content tables — `settings`, `services`, `portfolio`, `testimonials`, `bookings`, `messages` — pre-seeded with the same starting content as before
 4. Go to **Authentication → Providers** and make sure Email is enabled. For local testing, you can disable "Confirm email" under **Authentication → Settings** so signups work instantly without needing a real inbox.
+
+Site content (services, bookings, messages, portfolio, testimonials, settings) now lives in this same Supabase Postgres database — there's no separate JSON file to manage, and no separate database/host to pay for.
 
 ## 2. Configure environment variables
 
@@ -28,7 +32,7 @@ cp .env.example .env.local
 ```
 
 Fill in:
-- `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` — from step 1
+- `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` / `SUPABASE_SERVICE_ROLE_KEY` — all three from step 1
 - `RESEND_API_KEY` / `NOTIFY_EMAIL` — optional, for email notifications (see below)
 
 ## 3. Install and run
@@ -89,15 +93,11 @@ Without any setup, new bookings/messages still save correctly — you just won't
 
 Swap in your final designed logos by replacing these two SVG files with the same names.
 
-## Moving to a real database (recommended before heavy traffic)
+## Site content database
 
-Site content (services, portfolio, bookings, messages, testimonials, settings) lives in `data/db.json`, accessed only through `lib/db.js`. To migrate to Postgres:
+Services, portfolio, testimonials, bookings, messages, and settings all live in Postgres (the same Supabase project as your auth), accessed only through `lib/db.js` via a server-only service-role client (`utils/supabase/admin.js`). Nothing in the UI or Server Actions talks to the database directly — they only ever call functions like `getServices()`, `addBooking()`, etc., so the storage layer can change again later (e.g. splitting into a separate database) without touching any page or component.
 
-1. Add Prisma, define a schema mirroring the shapes in `data/db.json`.
-2. Reimplement each exported function in `lib/db.js` using Prisma Client instead of `fs`.
-3. Nothing else in the app needs to change — UI and Server Actions call the same function names.
-
-User accounts and admin roles are already in a real Postgres database (Supabase) — only the site-content layer is JSON.
+The `service_role` key bypasses Row Level Security and must stay server-only — it's never prefixed `NEXT_PUBLIC_` and is never imported into any client component.
 
 ## Deployment
 
@@ -106,9 +106,7 @@ npm run build
 npm run start
 ```
 
-Set all variables from `.env.example` in your hosting provider's environment settings.
-
-**Important if deploying to Vercel or another serverless platform:** serverless functions can't durably write to the local filesystem, so `data/db.json` writes (new bookings, messages, admin edits) won't persist between deployments/cold starts. Complete the Postgres migration above before deploying there, or deploy to a persistent Node host (a VPS, Railway, Render, etc.) where the filesystem is stable.
+Set all variables from `.env.example` in your hosting provider's environment settings (Vercel, Render, Railway, or any Node host all work — the database now lives in Supabase, not on local disk, so there's no persistence concern with serverless platforms anymore).
 
 ## Security notes before going fully live
 

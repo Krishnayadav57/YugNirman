@@ -5,10 +5,10 @@ import ServiceIcon from "@/components/ServiceIcon";
 import Counter from "@/components/Counter";
 import { getServices, getTestimonials, getPortfolio } from "@/lib/db";
 
-export default function HomePage() {
-  const services = getServices().slice(0, 6);
-  const testimonials = getTestimonials();
-  const portfolio = getPortfolio();
+export default async function HomePage() {
+  const services = (await getServices()).slice(0, 6);
+  const testimonials = await getTestimonials();
+  const portfolio = await getPortfolio();
 
   return (
     <>

@@ -13,9 +13,11 @@ const NAV = [
   { href: "/admin/settings", label: "Settings", icon: "⚙" },
 ];
 
-export default function AdminPanelLayout({ children }) {
-  const newBookings = getBookings().filter((b) => b.status === "new").length;
-  const unreadMessages = getMessages().filter((m) => !m.read).length;
+export default async function AdminPanelLayout({ children }) {
+  const bookings = await getBookings();
+  const messages = await getMessages();
+  const newBookings = bookings.filter((b) => b.status === "new").length;
+  const unreadMessages = messages.filter((m) => !m.read).length;
 
   return (
     <div className="min-h-screen flex">

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { getServices, getPortfolio, getBookings, getMessages, getTestimonials } from "@/lib/db";
 
-export default function AdminDashboard() {
-  const services = getServices();
-  const portfolio = getPortfolio();
-  const bookings = getBookings();
-  const messages = getMessages();
-  const testimonials = getTestimonials();
+export default async function AdminDashboard() {
+  const services = await getServices();
+  const portfolio = await getPortfolio();
+  const bookings = await getBookings();
+  const messages = await getMessages();
+  const testimonials = await getTestimonials();
 
   const stats = [
     { label: "Services", value: services.length, href: "/admin/services" },

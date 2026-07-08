@@ -3,8 +3,8 @@ import Image from "next/image";
 import { getSettings } from "@/lib/db";
 import SocialLinks from "@/components/SocialLinks";
 
-export default function Footer() {
-  const settings = getSettings();
+export default async function Footer() {
+  const settings = await getSettings();
   const legal = settings.legal || {};
   const hasLegalInfo = legal.registrationNo || legal.panNo || legal.vatNo;
 

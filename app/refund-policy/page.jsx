@@ -4,8 +4,8 @@ import { getSettings } from "@/lib/db";
 
 export const metadata = { title: "Refund & Cancellation Policy", description: "YugNirman's refund and cancellation terms." };
 
-export default function RefundPolicyPage() {
-  const s = getSettings();
+export default async function RefundPolicyPage() {
+  const s = await getSettings();
 
   return (
     <>

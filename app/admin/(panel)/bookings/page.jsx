@@ -3,9 +3,9 @@ import { updateBookingStatusAction, removeBookingAction } from "@/lib/actions";
 
 const STATUSES = ["new", "contacted", "in-progress", "completed", "declined"];
 
-export default function AdminBookingsPage() {
-  const bookings = getBookings();
-  const services = getServices();
+export default async function AdminBookingsPage() {
+  const bookings = await getBookings();
+  const services = await getServices();
   const serviceMap = Object.fromEntries(services.map((s) => [s.id, s.title]));
 
   return (

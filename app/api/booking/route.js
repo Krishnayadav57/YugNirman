@@ -28,12 +28,12 @@ export async function POST(request) {
     if (!parsed.success) {
       return NextResponse.json({ error: "Invalid input", details: parsed.error.flatten() }, { status: 400 });
     }
-    const services = getServices();
+    const services = await getServices();
     const service = services.find((s) => s.id === parsed.data.serviceId);
     if (!service) {
       return NextResponse.json({ error: "Unknown service" }, { status: 400 });
     }
-    const record = addBooking(parsed.data);
+    const record = await addBooking(parsed.data);
     sendNotificationEmail({
       subject: `New booking: ${service.title}`,
       html: bookingNotificationHtml(parsed.data, service.title),

@@ -24,7 +24,7 @@ export async function POST(request) {
     if (!parsed.success) {
       return NextResponse.json({ error: "Invalid input", details: parsed.error.flatten() }, { status: 400 });
     }
-    const record = addMessage(parsed.data);
+    const record = await addMessage(parsed.data);
     sendNotificationEmail({
       subject: `New message: ${parsed.data.subject}`,
       html: messageNotificationHtml(parsed.data),

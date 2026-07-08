@@ -3,8 +3,8 @@ import { createPortfolioAction, removePortfolioAction } from "@/lib/actions";
 
 const inputCls = "w-full rounded-lg border border-border bg-white/[0.03] px-3 py-2.5 text-sm focus:outline-none focus:border-accent";
 
-export default function AdminPortfolioPage() {
-  const portfolio = getPortfolio();
+export default async function AdminPortfolioPage() {
+  const portfolio = await getPortfolio();
 
   return (
     <div>

@@ -1,8 +1,8 @@
 import { getMessages } from "@/lib/db";
 import { markMessageReadAction, removeMessageAction } from "@/lib/actions";
 
-export default function AdminMessagesPage() {
-  const messages = getMessages();
+export default async function AdminMessagesPage() {
+  const messages = await getMessages();
 
   return (
     <div>

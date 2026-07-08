@@ -3,8 +3,8 @@ import { createTestimonialAction, removeTestimonialAction } from "@/lib/actions"
 
 const inputCls = "w-full rounded-lg border border-border bg-white/[0.03] px-3 py-2.5 text-sm focus:outline-none focus:border-accent";
 
-export default function AdminTestimonialsPage() {
-  const testimonials = getTestimonials();
+export default async function AdminTestimonialsPage() {
+  const testimonials = await getTestimonials();
 
   return (
     <div>

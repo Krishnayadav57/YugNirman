@@ -3,6 +3,11 @@ import CursorFX from "@/components/CursorFX";
 import ScrollReveal from "@/components/ScrollReveal";
 import CookieConsent from "@/components/CookieConsent";
 
+// Every page reads live settings/services/auth state per request (site content
+// lives in Postgres via Supabase, and the navbar reflects per-user login
+// state) — so nothing here should be statically prerendered at build time.
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   metadataBase: new URL("https://yugnirman.com"),
   title: {

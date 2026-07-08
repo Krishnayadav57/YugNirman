@@ -9,8 +9,8 @@ export const metadata = {
   description: "AI, web, mobile, cloud, automation, enterprise software, UI/UX, DevOps, and SaaS development services from YugNirman.",
 };
 
-export default function ServicesPage() {
-  const services = getServices();
+export default async function ServicesPage() {
+  const services = await getServices();
 
   return (
     <>

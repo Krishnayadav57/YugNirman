@@ -4,8 +4,8 @@ import { getSettings } from "@/lib/db";
 
 export const metadata = { title: "Privacy Policy", description: "How YugNirman collects, uses, and protects your data." };
 
-export default function PrivacyPage() {
-  const s = getSettings();
+export default async function PrivacyPage() {
+  const s = await getSettings();
 
   return (
     <>

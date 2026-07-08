@@ -14,8 +14,8 @@ const PROCESS = [
   { step: "07", title: "Maintenance", desc: "Ongoing support and continuous improvement." },
 ];
 
-export default function AboutPage() {
-  const settings = getSettings();
+export default async function AboutPage() {
+  const settings = await getSettings();
 
   return (
     <>

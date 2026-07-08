@@ -5,8 +5,8 @@ import { getPortfolio } from "@/lib/db";
 
 export const metadata = { title: "Portfolio", description: "Projects delivered by YugNirman." };
 
-export default function PortfolioPage() {
-  const portfolio = getPortfolio();
+export default async function PortfolioPage() {
+  const portfolio = await getPortfolio();
 
   return (
     <>

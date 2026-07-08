@@ -4,8 +4,8 @@ import { getSettings } from "@/lib/db";
 
 export const metadata = { title: "Terms of Service", description: "Terms governing use of YugNirman's website and services." };
 
-export default function TermsPage() {
-  const s = getSettings();
+export default async function TermsPage() {
+  const s = await getSettings();
 
   return (
     <>

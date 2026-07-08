@@ -5,8 +5,8 @@ function inputCls() {
   return "w-full rounded-lg border border-border bg-white/[0.03] px-3 py-2.5 text-sm focus:outline-none focus:border-accent";
 }
 
-export default function AdminServicesPage() {
-  const services = getServices();
+export default async function AdminServicesPage() {
+  const services = await getServices();
 
   return (
     <div>

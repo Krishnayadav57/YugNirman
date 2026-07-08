@@ -13,9 +13,10 @@ export default async function AccountPage() {
 
   if (!user) redirect("/login");
 
-  const services = getServices();
+  const services = await getServices();
   const serviceMap = Object.fromEntries(services.map((s) => [s.id, s.title]));
-  const myBookings = getBookings().filter((b) => b.email?.toLowerCase() === user.email?.toLowerCase());
+  const allBookings = await getBookings();
+  const myBookings = allBookings.filter((b) => b.email?.toLowerCase() === user.email?.toLowerCase());
 
   return (
     <>

@@ -8,7 +8,7 @@ import { createClient } from "@/utils/supabase/server";
 export const metadata = { title: "Book a Service", description: "Book a service with YugNirman." };
 
 export default async function BookPage() {
-  const services = getServices();
+  const services = await getServices();
   const supabase = createClient();
   const {
     data: { user },

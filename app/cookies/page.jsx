@@ -4,8 +4,8 @@ import { getSettings } from "@/lib/db";
 
 export const metadata = { title: "Cookie Policy", description: "How YugNirman uses cookies." };
 
-export default function CookiesPage() {
-  const s = getSettings();
+export default async function CookiesPage() {
+  const s = await getSettings();
 
   return (
     <>

@@ -3,20 +3,16 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceIcon from "@/components/ServiceIcon";
-import { getServiceBySlug, getServices } from "@/lib/db";
-
-export async function generateStaticParams() {
-  return getServices().map((s) => ({ slug: s.slug }));
-}
+import { getServiceBySlug } from "@/lib/db";
 
 export async function generateMetadata({ params }) {
-  const service = getServiceBySlug(params.slug);
+  const service = await getServiceBySlug(params.slug);
   if (!service) return {};
   return { title: service.title, description: service.shortDesc };
 }
 
-export default function ServiceDetailPage({ params }) {
-  const service = getServiceBySlug(params.slug);
+export default async function ServiceDetailPage({ params }) {
+  const service = await getServiceBySlug(params.slug);
   if (!service) notFound();
 
   return (
